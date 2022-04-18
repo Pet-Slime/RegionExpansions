@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>a collection of regions for inscryption</Description>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>RegionExpansions</AssemblyName>
+    <RootNamespace>RegionExpansions</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\re_Crab.png" />
+    <None Remove="Resources\re_Crab_e.png" />
+    <None Remove="Resources\re_HighTide.png" />
+    <None Remove="Resources\re_Jellyfish.png" />
+    <None Remove="Resources\re_Jellyfish_e.png" />
+    <None Remove="Resources\re_Lobster.png" />
+    <None Remove="Resources\re_Lobster_e.png" />
+    <None Remove="Resources\re_LowTide.png" />
+    <None Remove="Resources\re_Pogfish.png" />
+    <None Remove="Resources\re_Pogfish_e.png" />
+    <None Remove="Resources\re_salmon.png" />
+    <None Remove="Resources\re_salmon_e.png" />
+    <None Remove="Resources\re_Starfish.png" />
+    <None Remove="Resources\re_Starfish_e.png" />
+    <None Remove="Resources\re_Strong_Wind.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\re_Crab.png" />
+    <EmbeddedResource Include="Resources\re_Crab_e.png">
+      <CopyToOutputDirectory>Embedded resource</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\re_HighTide.png" />
+    <EmbeddedResource Include="Resources\re_Jellyfish.png" />
+    <EmbeddedResource Include="Resources\re_Jellyfish_e.png" />
+    <EmbeddedResource Include="Resources\re_Lobster.png" />
+    <EmbeddedResource Include="Resources\re_Lobster_e.png" />
+    <EmbeddedResource Include="Resources\re_LowTide.png" />
+    <EmbeddedResource Include="Resources\re_Pogfish.png" />
+    <EmbeddedResource Include="Resources\re_Pogfish_e.png" />
+    <EmbeddedResource Include="Resources\re_salmon.png" />
+    <EmbeddedResource Include="Resources\re_salmon_e.png" />
+    <EmbeddedResource Include="Resources\re_Starfish.png" />
+    <EmbeddedResource Include="Resources\re_Starfish_e.png" />
+    <EmbeddedResource Include="Resources\re_Strong_Wind.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.0.7" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.4.16" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="1.1.0" />
+    <PackageReference Include="Inscryption.GameLibs" Version="0.30.0-r.0" />
+    <PackageReference Include="UnityEngine.Modules" Version="2019.4.24" IncludeAssets="compile" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Infiniscryption.PackManager">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Inscryption\BepInEx\plugins\other\Infiniscryption.PackManager.dll</HintPath>
+    </Reference>
+    <Reference Include="InscryptionAPI">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Inscryption\BepInEx\plugins\API 2.0\InscryptionAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="InscryptionCommunityPatch">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Inscryption\BepInEx\plugins\API 2.0\InscryptionCommunityPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>lib\Sirenix.Serialization.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="CopyDLLs" AfterTargets="Build">
+    <Message Text="Executing CopyDLLs task" Importance="High" />
+
+    <Copy SourceFiles="$(TargetDir)$(ProjectName).dll;" DestinationFolder="C:\Program Files (x86)\Steam\steamapps\common\Inscryption\BepInEx\plugins\RegionExpansions\plugins" />
+    
+    <Copy Condition="Exists('C:\DEVELOPER\InscryptionMods\lib\')" SourceFiles="$(TargetDir)$(ProjectName).dll" DestinationFolder="C:\DEVELOPER\InscryptionMods\lib\" />
+
+    <Message Text="Copied build files" Importance="High" />
+  </Target>
+  
+
+  
+</Project>
