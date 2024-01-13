@@ -17,7 +17,7 @@ namespace RegionExpansions
 		public const string SigilGUID = "extraVoid.inscryption.voidSigils";
 		public const string PluginGuid = "extraVoid.inscryption.RegionExpansions";
 		private const string PluginName = "RegionExpansions";
-		private const string PluginVersion = "1.0.0";
+		private const string PluginVersion = "1.1.0";
 
 		public static string Directory;
 		internal static ManualLogSource Log;
@@ -44,15 +44,23 @@ namespace RegionExpansions
 			School_Fish.AddCard();
 
 			Regions.Region_Beach.AddRegionIntroDialogue();
+			///Regions.Region_Ridgeline.AddRegionIntroDialogue();
 
 		}
 
 		private void Start()
         {
 			Regions.Region_Beach.AddRegion();
-			Regions.Region_Ridgeline.AddRegion();
+			///Regions.Region_Ridgeline.AddRegion();
+			///
 
-		}
+			lib.CreateCardPack.CreatePack();
+			Log.LogWarning("ADDED BEACH SUCCESSFULLY");
+			Encounter.BirdOfTheSea.AddEncounter();
+            Encounter.TideOfFish.AddEncounter();
+            Encounter.CrabsAndLobster.AddEncounter();
+
+        }
 
 
 	}
@@ -75,6 +83,4 @@ namespace RegionExpansions
 			return instance;
 		}
 	}
-
-
 }
