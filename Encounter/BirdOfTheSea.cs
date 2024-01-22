@@ -37,11 +37,7 @@ namespace RegionExpansions.Encounter
             List<EncounterBlueprintData.CardBlueprint> turn_1 = new List<EncounterBlueprintData.CardBlueprint>();
             turn_1.Add(new EncounterBlueprintData.CardBlueprint
             {
-                card = CardLoader.GetCardByName("SkeletonParrot")
-            });
-            turn_1.Add(new EncounterBlueprintData.CardBlueprint
-            {
-                card = CardLoader.GetCardByName("Kingfisher")
+                card = CardLoader.GetCardByName("re_Starfish")
             });
 
             List<EncounterBlueprintData.CardBlueprint> turn_2 = new List<EncounterBlueprintData.CardBlueprint>();
@@ -51,6 +47,10 @@ namespace RegionExpansions.Encounter
                 difficultyReplace = true,
                 difficultyReq = 13,
                 replacement = CardLoader.GetCardByName("SkeletonParrot")
+            });
+            turn_2.Add(new EncounterBlueprintData.CardBlueprint
+            {
+                card = CardLoader.GetCardByName("Kingfisher")
             });
 
             List<EncounterBlueprintData.CardBlueprint> turn_3 = new List<EncounterBlueprintData.CardBlueprint>();
@@ -144,7 +144,7 @@ namespace RegionExpansions.Encounter
 
             EncounterManager.Add(encounter);
 
-            InscryptionAPI.Regions.RegionExtensions.AddEncounters(EncounterHelper.GetRegionData(regionName), encounter);
+         ///   InscryptionAPI.Regions.RegionExtensions.AddEncounters(EncounterHelper.GetRegionData(regionName), encounter);
 
         }
     }

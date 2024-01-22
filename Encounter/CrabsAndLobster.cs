@@ -1,5 +1,6 @@
 ﻿using DiskCardGame;
 using InscryptionAPI.Encounters;
+using InscryptionAPI.Guid;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,7 +19,13 @@ namespace RegionExpansions.Encounter
 
             //What is the most common tribe?
             List<Tribe> dominate = new List<Tribe>();
-            dominate.Add(Tribe.Bird);
+            if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.TotemGUID))
+            {
+                dominate.Add(GuidManager.GetEnumValue<Tribe>(Plugin.TotemGUID, "aquatic"));
+            } else
+            {
+                dominate.Add(Tribe.Bird);
+            }
 
             //Are any abilities redundent? Thus shouldnt be used on a totem
             List<Ability> redundant = new List<Ability>();
@@ -130,7 +137,7 @@ namespace RegionExpansions.Encounter
 
             EncounterManager.Add(encounter);
 
-            InscryptionAPI.Regions.RegionExtensions.AddEncounters(EncounterHelper.GetRegionData(regionName), encounter);
+          //  InscryptionAPI.Regions.RegionExtensions.AddEncounters(EncounterHelper.GetRegionData(regionName), encounter);
 
         }
     }

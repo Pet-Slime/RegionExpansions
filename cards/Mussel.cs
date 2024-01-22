@@ -7,18 +7,18 @@ using InscryptionAPI.Guid;
 
 namespace RegionExpansions.cards
 {
-	public static class Starfish
+	public static class Mussel
 	{
 		public static readonly Ability CustomAbility1 = InscryptionAPI.Guid.GuidManager.GetEnumValue<Ability>("extraVoid.inscryption.voidSigils", "Sluggish");
-        public static readonly Ability CustomAbility2 = InscryptionAPI.Guid.GuidManager.GetEnumValue<Ability>("extraVoid.inscryption.voidSigils", "Regen 2");
+        public static readonly Ability CustomAbility2 = InscryptionAPI.Guid.GuidManager.GetEnumValue<Ability>("extraVoid.inscryption.voidSigils", "Sticky");
         public static void AddCard()
 		{
-			string name = "re_Starfish";
-			string displayName = "Beach Star";
-			string description = "A starfish found in tidepools. They love to consume crab.";
-			int baseAttack = 1;
-			int baseHealth = 4;
-			int bloodCost = 2;
+			string name = "re_Mussel";
+			string displayName = "Rock Mussel";
+			string description = "A mussel that can stick to anything.";
+			int baseAttack = 0;
+			int baseHealth = 3;
+			int bloodCost = 1;
 			int boneCost = 0;
 			int energyCost = 0;
 
@@ -29,8 +29,13 @@ namespace RegionExpansions.cards
 			List<Tribe> Tribes = new List<Tribe>();
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.TotemGUID))
             {
-                Plugin.Log.LogMessage("Lily Totems found, Beach Star is now aquatic");
+                Plugin.Log.LogMessage("Lily Totems found, Rock Mussel is now aquatic");
                 Tribes.Add(GuidManager.GetEnumValue<Tribe>("Lily.BOT", "aquatic"));
+            }
+            if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.NeverGUID))
+            {
+                Plugin.Log.LogMessage("Never stuff found, Rock Mussel is now Crustacean");
+                Tribes.Add(GuidManager.GetEnumValue<Tribe>(Plugin.NeverGUID, "Crustacean"));
             }
 
             List<Ability> Abilities = new List<Ability>();
@@ -39,8 +44,8 @@ namespace RegionExpansions.cards
 
 			List<Trait> Traits = new List<Trait>();
 
-			Texture2D DefaultTexture = TextureHelper.GetImageAsTexture("re_Starfish.png", typeof(High_Tide).Assembly);
-			Texture2D eTexture = TextureHelper.GetImageAsTexture("re_Starfish_e.png", typeof(High_Tide).Assembly);
+			Texture2D DefaultTexture = TextureHelper.GetImageAsTexture("re_Mussel.png", typeof(High_Tide).Assembly);
+			Texture2D eTexture = TextureHelper.GetImageAsTexture("re_Mussel_e.png", typeof(High_Tide).Assembly);
 
 			CardInfo newCard = SigilUtils.CreateCardWithDefaultSettings(
 				InternalName: name,

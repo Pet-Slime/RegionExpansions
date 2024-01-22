@@ -3,6 +3,7 @@ using DiskCardGame;
 using UnityEngine;
 using InscryptionAPI.Card;
 using InscryptionAPI.Helpers;
+using InscryptionAPI.Guid;
 
 namespace RegionExpansions.cards
 {
@@ -24,8 +25,13 @@ namespace RegionExpansions.cards
 			metaCategories.Add(CardMetaCategory.TraderOffer);
 
 			List<Tribe> Tribes = new List<Tribe>();
+            if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.TotemGUID))
+            {
+                Plugin.Log.LogMessage("Lily Totems found, Costal Salmon is now aquatic");
+                Tribes.Add(GuidManager.GetEnumValue<Tribe>("Lily.BOT", "aquatic"));
+            }
 
-			List<Ability> Abilities = new List<Ability>();
+            List<Ability> Abilities = new List<Ability>();
 			Abilities.Add(Ability.Strafe);
 			Abilities.Add(Ability.Submerge);
 

@@ -19,6 +19,8 @@
     <None Remove="Resources\re_Lobster.png" />
     <None Remove="Resources\re_Lobster_e.png" />
     <None Remove="Resources\re_LowTide.png" />
+    <None Remove="Resources\re_mussel.png" />
+    <None Remove="Resources\re_mussel_e.png" />
     <None Remove="Resources\re_Pogfish.png" />
     <None Remove="Resources\re_Pogfish_e.png" />
     <None Remove="Resources\re_salmon.png" />
@@ -40,6 +42,8 @@
     <EmbeddedResource Include="Resources\re_Lobster.png" />
     <EmbeddedResource Include="Resources\re_Lobster_e.png" />
     <EmbeddedResource Include="Resources\re_LowTide.png" />
+    <EmbeddedResource Include="Resources\re_mussel.png" />
+    <EmbeddedResource Include="Resources\re_mussel_e.png" />
     <EmbeddedResource Include="Resources\re_Pogfish.png" />
     <EmbeddedResource Include="Resources\re_Pogfish_e.png" />
     <EmbeddedResource Include="Resources\re_salmon.png" />

@@ -25,7 +25,7 @@ namespace RegionExpansions.sigils
 		{
 
 			PlayableCard card = (PlayableCard)base.Card;
-			int num = SeededRandom.Range(1, 4, GetRandomSeed());
+			int num = SeededRandom.Range(2, 4, GetRandomSeed());
 			this.numTurnsInPlay++;
 			card.Anim.LightNegationEffect();
 			if (this.numTurnsInPlay >= num)

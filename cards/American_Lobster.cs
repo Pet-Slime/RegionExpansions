@@ -3,6 +3,7 @@ using DiskCardGame;
 using UnityEngine;
 using InscryptionAPI.Card;
 using InscryptionAPI.Helpers;
+using InscryptionAPI.Guid;
 
 namespace RegionExpansions.cards
 {
@@ -12,10 +13,10 @@ namespace RegionExpansions.cards
 		public static void AddCard()
 		{
 			string name = "re_American_Lobster";
-			string displayName = "Lobster";
+			string displayName = "Small Lobster";
 			string description = "Their claws can keep a grip on almost anything.";
 			int baseAttack = 2;
-			int baseHealth = 3;
+			int baseHealth = 1;
 			int bloodCost = 2;
 			int boneCost = 0;
 			int energyCost = 0;
@@ -25,8 +26,19 @@ namespace RegionExpansions.cards
 			metaCategories.Add(CardMetaCategory.TraderOffer);
 
 			List<Tribe> Tribes = new List<Tribe>();
+            if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.TotemGUID))
+            {
+                Plugin.Log.LogMessage("Lily Totems found, Small Lobster is now aquatic");
+                Tribes.Add(GuidManager.GetEnumValue<Tribe>(Plugin.TotemGUID, "aquatic"));
+            }
+            if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.NeverGUID))
+            {
+                Plugin.Log.LogMessage("Never stuff found, Small Lobster is now Crustacean");
+                Tribes.Add(GuidManager.GetEnumValue<Tribe>(Plugin.NeverGUID, "Crustacean"));
+            }
 
-			List<Ability> Abilities = new List<Ability>();
+
+            List<Ability> Abilities = new List<Ability>();
 			Abilities.Add(CustomAbility1);
 			Abilities.Add(Ability.Submerge);
 

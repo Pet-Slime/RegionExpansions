@@ -64,6 +64,21 @@ namespace RegionExpansions
             return Encounter;
         }
 
+        public static EncounterBlueprintData GetCustomBlueprintData(string EncounterName)
+        {
+            EncounterBlueprintData Encounter = InscryptionAPI.Encounters.EncounterManager.NewEncounters[0];
+
+            for (var index = 0; index < InscryptionAPI.Encounters.EncounterManager.NewEncounters.Count; index++)
+            {
+                if (InscryptionAPI.Encounters.EncounterManager.NewEncounters[index].name == EncounterName)
+                {
+                    Encounter = InscryptionAPI.Encounters.EncounterManager.NewEncounters[index];
+                }
+            }
+
+            return Encounter;
+        }
+
 
         public static List<CardInfo> AddRandomCards(string turn1 = "none", string turn2 = "none", string turn3 = "none", string turn4 = "none", string turn5 = "none", string turn6 = "none", string turn7 = "none", string turn8 = "none", string turn9 = "none")
         {

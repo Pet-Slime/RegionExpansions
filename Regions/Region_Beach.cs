@@ -3,6 +3,7 @@ using InscryptionAPI.Encounters;
 using InscryptionAPI.Regions;
 using DiskCardGame;
 using UnityEngine;
+using InscryptionAPI.Guid;
 
 namespace RegionExpansions.Regions
 {
@@ -82,11 +83,14 @@ namespace RegionExpansions.Regions
             treastureChest.data.perlinNoiseHeight = false;
 
 
+
             var boardlight = pirateRegionBase.boardLightColor;
             var cardlight = pirateRegionBase.cardsLightColor;
             var mapAlbendo = pirateRegionBase.mapAlbedo;
 
-            RegionManager.New("Beach", 2, true)
+            if (!BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.TotemGUID))
+            {
+                RegionManager.New("Beach", 2, true)
                 .SetBoardColor(boardlight)
                 .SetCardsColor(cardlight)
                 .AddFillerScenery(fillerData)
@@ -100,12 +104,43 @@ namespace RegionExpansions.Regions
                 .SetDustParticlesEnabled(false)
                 .AddBosses(Opponent.Type.PirateSkullBoss)
                 .AddDominantTribes(Tribe.Bird)
-                .AddEncounters(EncounterHelper.GetBlueprintData("Submerge"), EncounterHelper.GetBlueprintData("BirdFlock"))
+                .AddEncounters(
+                    EncounterHelper.GetBlueprintData("Submerge"),
+                    EncounterHelper.GetBlueprintData("BirdFlock"),
+                    EncounterHelper.GetCustomBlueprintData("BirdOfTheSea"),
+                    EncounterHelper.GetCustomBlueprintData("CrabsAndLobster"),
+                    EncounterHelper.GetCustomBlueprintData("TideOfFish"))
                 .AddLikelyCards("Kingfisher")
                 .AddLikelyCards("portrait_skeletonparrot")
-                .AddTerrainCards("re_High_Tide", "re_Strong_Wind_1","Boulder", "re_Low_Tide")
+                .AddTerrainCards("re_High_Tide", "re_Strong_Wind_1", "Boulder", "re_Low_Tide")
                 .Build();
-
+            } else
+            {
+                RegionManager.New("Beach", 2, true)
+                .SetBoardColor(boardlight)
+                .SetCardsColor(cardlight)
+                .AddFillerScenery(fillerData)
+                .AddScarceScenery(palmtree, treastureChest)
+                .SetMapAlbedo(mapAlbendo)
+                .SetMapEmission(test)
+                .SetAmbientLoopId("boss_pirateskull_ambient")
+                .SetMapEmissionColor(pirateRegionBase.mapEmissionColor)
+                .SetFogAlpha(pirateRegionBase.fogAlpha)
+                .SetFogEnabled(pirateRegionBase.fogEnabled)
+                .SetDustParticlesEnabled(false)
+                .AddBosses(Opponent.Type.PirateSkullBoss)
+                .AddDominantTribes(Tribe.Bird, GuidManager.GetEnumValue<Tribe>(Plugin.TotemGUID, "aquatic"))
+                .AddEncounters(
+                    EncounterHelper.GetBlueprintData("Submerge"), 
+                    EncounterHelper.GetBlueprintData("BirdFlock"), 
+                    EncounterHelper.GetCustomBlueprintData("BirdOfTheSea"),
+                    EncounterHelper.GetCustomBlueprintData("CrabsAndLobster"),
+                    EncounterHelper.GetCustomBlueprintData("TideOfFish"))
+                .AddLikelyCards("Kingfisher")
+                .AddLikelyCards("portrait_skeletonparrot")
+                .AddTerrainCards("re_High_Tide", "re_Strong_Wind_1", "Boulder", "re_Low_Tide")
+                .Build();
+            }
         }
     }
 }
