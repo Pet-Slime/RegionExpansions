@@ -80,82 +80,22 @@ namespace RegionExpansions
         }
 
 
-        public static List<CardInfo> AddRandomCards(string turn1 = "none", string turn2 = "none", string turn3 = "none", string turn4 = "none", string turn5 = "none", string turn6 = "none", string turn7 = "none", string turn8 = "none", string turn9 = "none")
+        public static List<CardInfo> AddRandomCards(params string[] turns)
         {
-
             List<CardInfo> randomReplacements = new List<CardInfo>();
-            if (turn1 != "none")
+
+            foreach (string turn in turns)
             {
-                randomReplacements.Add(CardLoader.GetCardByName(turn1));
+                if (turn != "none")
+                {
+                    randomReplacements.Add(CardLoader.GetCardByName(turn));
+                }
+                else
+                {
+                    return randomReplacements;
+                }
             }
-            else
-            {
-                return randomReplacements;
-            }
-            if (turn2 != "none")
-            {
-                randomReplacements.Add(CardLoader.GetCardByName(turn2));
-            }
-            else
-            {
-                return randomReplacements;
-            }
-            if (turn3 != "none")
-            {
-                randomReplacements.Add(CardLoader.GetCardByName(turn3));
-            }
-            else
-            {
-                return randomReplacements;
-            }
-            if (turn4 != "none")
-            {
-                randomReplacements.Add(CardLoader.GetCardByName(turn4));
-            }
-            else
-            {
-                return randomReplacements;
-            }
-            if (turn5 != "none")
-            {
-                randomReplacements.Add(CardLoader.GetCardByName(turn5));
-            }
-            else
-            {
-                return randomReplacements;
-            }
-            if (turn6 != "none")
-            {
-                randomReplacements.Add(CardLoader.GetCardByName(turn6));
-            }
-            else
-            {
-                return randomReplacements;
-            }
-            if (turn7 != "none")
-            {
-                randomReplacements.Add(CardLoader.GetCardByName(turn7));
-            }
-            else
-            {
-                return randomReplacements;
-            }
-            if (turn8 != "none")
-            {
-                randomReplacements.Add(CardLoader.GetCardByName(turn8));
-            }
-            else
-            {
-                return randomReplacements;
-            }
-            if (turn9 != "none")
-            {
-                randomReplacements.Add(CardLoader.GetCardByName(turn9));
-            }
-            else
-            {
-                return randomReplacements;
-            }
+
             return randomReplacements;
         }
 
