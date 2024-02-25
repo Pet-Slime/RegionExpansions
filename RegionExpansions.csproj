@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <None Remove="Resources\beach_pack.png" />
+    <None Remove="Resources\region_expansions" />
     <None Remove="Resources\re_Crab.png" />
     <None Remove="Resources\re_Crab_e.png" />
     <None Remove="Resources\re_HighTide.png" />
@@ -32,6 +33,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\beach_pack.png" />
+    <EmbeddedResource Include="Resources\region_expansions" />
     <EmbeddedResource Include="Resources\re_Crab.png" />
     <EmbeddedResource Include="Resources\re_Crab_e.png">
       <CopyToOutputDirectory>Embedded resource</CopyToOutputDirectory>
@@ -82,6 +84,10 @@
     <Reference Include="Sirenix.Serialization">
       <HintPath>lib\Sirenix.Serialization.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Encounter\Bosses\" />
   </ItemGroup>
 
   <Target Name="CopyDLLs" AfterTargets="Build">

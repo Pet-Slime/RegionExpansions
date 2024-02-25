@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RegionExpansions.Encounter
+namespace RegionExpansions.Encounter.Normal
 {
     internal class CrabsAndLobster
     {
@@ -22,7 +22,8 @@ namespace RegionExpansions.Encounter
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.TotemGUID))
             {
                 dominate.Add(GuidManager.GetEnumValue<Tribe>(Plugin.TotemGUID, "aquatic"));
-            } else
+            }
+            else
             {
                 dominate.Add(Tribe.Bird);
             }
@@ -133,11 +134,11 @@ namespace RegionExpansions.Encounter
             turns.Add(turn_9);
 
 
-            var encounter = RegionExpansions.EncounterHelper.BuildBlueprint(name, dominate, redundant, regionLocked, 0, 30, randomReplacements, turns);
+            var encounter = EncounterHelper.BuildBlueprint(name, dominate, redundant, regionLocked, 0, 30, randomReplacements, turns);
 
             EncounterManager.Add(encounter);
 
-          //  InscryptionAPI.Regions.RegionExtensions.AddEncounters(EncounterHelper.GetRegionData(regionName), encounter);
+            //  InscryptionAPI.Regions.RegionExtensions.AddEncounters(EncounterHelper.GetRegionData(regionName), encounter);
 
         }
     }

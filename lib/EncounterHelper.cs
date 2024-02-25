@@ -95,7 +95,6 @@ namespace RegionExpansions
                     return randomReplacements;
                 }
             }
-
             return randomReplacements;
         }
 

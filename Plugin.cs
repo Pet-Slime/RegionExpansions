@@ -4,12 +4,15 @@ using HarmonyLib;
 using RegionExpansions.cards;
 using InscryptionAPI.Card;
 using UnityEngine;
+using System.IO;
+using System.Reflection;
+using RegionExpansions.Encounter.Normal;
+using System;
 using DiskCardGame;
-using InscryptionAPI.Guid;
 
 namespace RegionExpansions
 {
-	[BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+    [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 	[BepInDependency(APIGUID, BepInDependency.DependencyFlags.HardDependency)]
 	[BepInDependency(SigilGUID, BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency(TotemGUID, BepInDependency.DependencyFlags.SoftDependency)]
@@ -29,16 +32,24 @@ namespace RegionExpansions
 
 		public static string Directory;
 		internal static ManualLogSource Log;
+        public static AssetBundle RegionExpansionBundle;
+
+
+        public static BossBattleNodeData GravekeeperBossNode;
+        public static Opponent.Type GravekeeperBoss;
+        public static string GraveyardBossBattleSequencer;
 
 
 
-		private void Awake()
+        private void Awake()
 		{
 
 			Log = base.Logger;
 			Directory = this.Info.Location.Replace("RegionExpansions.dll", "");
 
-			Harmony harmony = new(PluginGuid);
+			Plugin.RegionExpansionBundle = Plugin.LoadBundle("RegionExpansions\\Resources\\region_expansions");
+
+            Harmony harmony = new(PluginGuid);
 			harmony.PatchAll();
 			RegionExpansions.sigils.DyingWind.specialAbility = SpecialTriggeredAbilityManager.Add(Plugin.PluginGuid, "Dying Wind", typeof(RegionExpansions.sigils.DyingWind)).Id;
 
@@ -53,22 +64,25 @@ namespace RegionExpansions
 			School_Fish.AddCard();
 			Starfish.AddCard();
 
-			Regions.Region_Beach.AddRegionIntroDialogue();
-			Regions.Region_Ridgeline.AddRegionIntroDialogue();
+			///Regions.Region_Beach.AddRegionIntroDialogue();
+			Regions.Graveyard.Region_Graveyard.AddRegionIntroDialogue();
+            Regions.Graveyard.Gravekeeper_boss.AddBossNodes();
 
 		}
 
-		private void Start()
+
+
+        private void Start()
         {
 
 
-			Encounter.BirdOfTheSea.AddEncounter();
-            Encounter.TideOfFish.AddEncounter();
-            Encounter.CrabsAndLobster.AddEncounter();
+            BirdOfTheSea.AddEncounter();
+            TideOfFish.AddEncounter();
+            CrabsAndLobster.AddEncounter();
 
 
-            Regions.Region_Beach.AddRegion();
-            Regions.Region_Ridgeline.AddRegion();
+            ///Regions.Region_Beach.AddRegion();
+            Regions.Graveyard.Region_Graveyard.AddRegion();
 
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.PackManagerGUID))
             {
@@ -77,10 +91,32 @@ namespace RegionExpansions
 
         }
 
+        public static AssetBundle LoadBundle(string path)
+        {
+            AssetBundle result;
+            using (Stream manifestResourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(path.Replace("\\", ".").Replace("/", ".")))
+            {
+                result = AssetBundle.LoadFromStream(manifestResourceStream);
+            }
+            return result;
+        }
 
-	}
+        [HarmonyPatch(typeof(ResourceBank), "Awake", new Type[] { })]
+        internal class ResourceBank_Awake
+        {
+            public static void Postfix()
+            {
+                Plugin.Log.LogInfo("Load Region Game Objects");
+                Regions.Region_Graveyard.LoadGameObjects();
+            }
+        }
 
-	public static class ScriptableObjectExtension
+
+    }
+
+
+
+    public static class ScriptableObjectExtension
 	{
 		/// <summary>
 		/// Creates and returns a clone of any given scriptable object.

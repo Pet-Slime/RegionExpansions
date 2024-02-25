@@ -1,41 +1,34 @@
 ﻿using DiskCardGame;
 using InscryptionAPI.Encounters;
-using InscryptionAPI.Guid;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RegionExpansions.Encounter
+namespace RegionExpansions.Encounter.Normal
 {
-    internal class TideOfFish
+    internal class BirdOfTheSea
     {
         public static void AddEncounter()
         {
             //Name of the encounter
-            string name = "TideOfFish";
+            string name = "BirdOfTheSea";
 
             //Vanilla region names are: Forest, Wetlands, and Alpine
             string regionName = "Beach";
 
             //What is the most common tribe?
             List<Tribe> dominate = new List<Tribe>();
-            if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.TotemGUID))
-            {
-                dominate.Add(GuidManager.GetEnumValue<Tribe>(Plugin.TotemGUID, "aquatic"));
-            } else
-            {
-                dominate.Add(Tribe.Bird);
-            }
+            dominate.Add(Tribe.Bird);
 
             //Are any abilities redundent? Thus shouldnt be used on a totem
             List<Ability> redundant = new List<Ability>();
-            redundant.Add(Ability.Submerge);
+            redundant.Add(Ability.Flying);
 
             //Is this encounter locked to a region?
             bool regionLocked = true;
 
             //Add random Replacements
-            List<CardInfo> randomReplacements = EncounterHelper.AddRandomCards("re_Schoolling_Fish", "Shark", "Kingfisher");
+            List<CardInfo> randomReplacements = EncounterHelper.AddRandomCards("Stoat", "Shark", "re_Starfish");
 
 
             //Encounter by turns
@@ -44,18 +37,16 @@ namespace RegionExpansions.Encounter
             List<EncounterBlueprintData.CardBlueprint> turn_1 = new List<EncounterBlueprintData.CardBlueprint>();
             turn_1.Add(new EncounterBlueprintData.CardBlueprint
             {
-                card = CardLoader.GetCardByName("re_Moon_Jellyfish")
+                card = CardLoader.GetCardByName("re_Starfish")
             });
-            
 
             List<EncounterBlueprintData.CardBlueprint> turn_2 = new List<EncounterBlueprintData.CardBlueprint>();
             turn_2.Add(new EncounterBlueprintData.CardBlueprint
             {
-                card = CardLoader.GetCardByName("re_Moon_Jellyfish"),
+                card = null,
                 difficultyReplace = true,
-                difficultyReq = 18,
-                replacement = CardLoader.GetCardByName("re_Costal_Salmon"),
-                randomReplaceChance = 25
+                difficultyReq = 13,
+                replacement = CardLoader.GetCardByName("SkeletonParrot")
             });
             turn_2.Add(new EncounterBlueprintData.CardBlueprint
             {
@@ -65,56 +56,71 @@ namespace RegionExpansions.Encounter
             List<EncounterBlueprintData.CardBlueprint> turn_3 = new List<EncounterBlueprintData.CardBlueprint>();
             turn_3.Add(new EncounterBlueprintData.CardBlueprint
             {
-                card = CardLoader.GetCardByName("re_Moon_Jellyfish"),
-                difficultyReplace = true,
-                difficultyReq = 12,
-                replacement = CardLoader.GetCardByName("re_Costal_Salmon"),
-                randomReplaceChance = 25
-            });
-            turn_3.Add(new EncounterBlueprintData.CardBlueprint
-            {
-                card = null,
-                difficultyReplace = true,
-                difficultyReq = 19,
-                replacement = CardLoader.GetCardByName("Shark"),
-                randomReplaceChance = 25
+                card = CardLoader.GetCardByName("Kingfisher")
             });
 
             List<EncounterBlueprintData.CardBlueprint> turn_4 = new List<EncounterBlueprintData.CardBlueprint>();
             turn_4.Add(new EncounterBlueprintData.CardBlueprint
             {
+                card = CardLoader.GetCardByName("SkeletonParrot"),
+                randomReplaceChance = 25
+            });
+            turn_4.Add(new EncounterBlueprintData.CardBlueprint
+            {
                 card = null,
                 difficultyReplace = true,
-                difficultyReq = 15,
-                replacement = CardLoader.GetCardByName("re_Costal_Salmon"),
-                randomReplaceChance = 25
+                difficultyReq = 18,
+                replacement = CardLoader.GetCardByName("SkeletonParrot")
+            });
+            turn_4.Add(new EncounterBlueprintData.CardBlueprint
+            {
+                card = CardLoader.GetCardByName("SkeletonParrot")
             });
 
             List<EncounterBlueprintData.CardBlueprint> turn_5 = new List<EncounterBlueprintData.CardBlueprint>();
             turn_5.Add(new EncounterBlueprintData.CardBlueprint
             {
-                card = null,
-                difficultyReplace = true,
-                difficultyReq = 17,
-                replacement = CardLoader.GetCardByName("re_Schoolling_Fish"),
+                card = CardLoader.GetCardByName("SkeletonParrot"),
                 randomReplaceChance = 25
+            });
+            turn_5.Add(new EncounterBlueprintData.CardBlueprint
+            {
+                card = CardLoader.GetCardByName("SkeletonParrot"),
+                randomReplaceChance = 25
+            });
+            turn_5.Add(new EncounterBlueprintData.CardBlueprint
+            {
+                card = CardLoader.GetCardByName("SkeletonParrot")
             });
             List<EncounterBlueprintData.CardBlueprint> turn_6 = new List<EncounterBlueprintData.CardBlueprint>();
             turn_6.Add(new EncounterBlueprintData.CardBlueprint
             {
+                card = CardLoader.GetCardByName("Kingfisher"),
+                randomReplaceChance = 25
+            });
+            turn_6.Add(new EncounterBlueprintData.CardBlueprint
+            {
                 card = null,
                 difficultyReplace = true,
-                difficultyReq = 19,
-                replacement = CardLoader.GetCardByName("re_Schoolling_Fish"),
-                randomReplaceChance = 25
+                difficultyReq = 18,
+                replacement = CardLoader.GetCardByName("SkeletonParrot")
+            });
+            turn_6.Add(new EncounterBlueprintData.CardBlueprint
+            {
+                card = null,
+                difficultyReplace = true,
+                difficultyReq = 13,
+                replacement = CardLoader.GetCardByName("SkeletonParrot")
             });
             List<EncounterBlueprintData.CardBlueprint> turn_7 = new List<EncounterBlueprintData.CardBlueprint>();
             turn_7.Add(new EncounterBlueprintData.CardBlueprint
             {
-                card = null,
-                difficultyReplace = true,
-                difficultyReq = 21,
-                replacement = CardLoader.GetCardByName("Shark"),
+                card = CardLoader.GetCardByName("Kingfisher"),
+                randomReplaceChance = 25
+            });
+            turn_7.Add(new EncounterBlueprintData.CardBlueprint
+            {
+                card = CardLoader.GetCardByName("SkeletonParrot"),
                 randomReplaceChance = 25
             });
             List<EncounterBlueprintData.CardBlueprint> turn_8 = new List<EncounterBlueprintData.CardBlueprint>();
@@ -134,11 +140,11 @@ namespace RegionExpansions.Encounter
             turns.Add(turn_9);
 
 
-            var encounter = RegionExpansions.EncounterHelper.BuildBlueprint(name, dominate, redundant, regionLocked, 0, 30, randomReplacements, turns);
+            var encounter = EncounterHelper.BuildBlueprint(name, dominate, redundant, regionLocked, 0, 30, randomReplacements, turns);
 
             EncounterManager.Add(encounter);
 
-         ///   InscryptionAPI.Regions.RegionExtensions.AddEncounters(EncounterHelper.GetRegionData(regionName), encounter);
+            ///   InscryptionAPI.Regions.RegionExtensions.AddEncounters(EncounterHelper.GetRegionData(regionName), encounter);
 
         }
     }

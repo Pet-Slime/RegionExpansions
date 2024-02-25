@@ -5,7 +5,7 @@ using DiskCardGame;
 using UnityEngine;
 using InscryptionAPI.Guid;
 
-namespace RegionExpansions.Regions
+namespace RegionExpansions.Regions.Beach
 {
     internal class Region_Beach
     {
