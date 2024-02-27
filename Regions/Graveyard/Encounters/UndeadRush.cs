@@ -35,7 +35,7 @@ namespace RegionExpansions.Regions.Graveyard.Encounters
             bool regionLocked = true;
 
             //Add random Replacements
-            List<CardInfo> randomReplacements = EncounterHelper.AddRandomCards("Zombie Parrot");
+            List<CardInfo> randomReplacements = EncounterHelper.AddRandomCards("SkeletonParrot");
 
 
             //Encounter by turns
@@ -84,7 +84,7 @@ namespace RegionExpansions.Regions.Graveyard.Encounters
             List<EncounterBlueprintData.CardBlueprint> turn_4 = new List<EncounterBlueprintData.CardBlueprint>();
             turn_4.Add(new EncounterBlueprintData.CardBlueprint
             {
-                card = CardLoader.GetCardByName("eri_AntHusk"),
+                card = CardLoader.GetCardByName("SkeletonParrot"),
                 difficultyReplace = true,
                 difficultyReq = 13,
                 replacement = CardLoader.GetCardByName("eri_WolfSkeleton"),

@@ -36,7 +36,7 @@ namespace RegionExpansions.Regions.Graveyard.Encounters
             bool regionLocked = true;
 
             //Add random Replacements
-            List<CardInfo> randomReplacements = EncounterHelper.AddRandomCards("Long Elk");
+            List<CardInfo> randomReplacements = EncounterHelper.AddRandomCards("Snelk");
 
 
             //Encounter by turns

@@ -26,7 +26,7 @@ namespace RegionExpansions
         public const string PackManagerGUID = "zorro.inscryption.infiniscryption.packmanager";
         public const string PluginGuid = "extraVoid.inscryption.RegionExpansions";
 		private const string PluginName = "RegionExpansions";
-		private const string PluginVersion = "2.2.0";
+		private const string PluginVersion = "3.0.0";
 
 		public static string Directory;
 		internal static ManualLogSource Log;
@@ -93,7 +93,7 @@ namespace RegionExpansions
  ///           Masks.Gravekeeper_Mask.AddMask();
 
 
-            ///Regions.Region_Beach.AddRegion();
+///            Regions.Beach.Region_Beach.AddRegion();
             Regions.Graveyard.Region_Graveyard.AddRegion();
 
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.PackManagerGUID))

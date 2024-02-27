@@ -37,10 +37,21 @@
     <None Remove="Resources\cards\Beach\re_Starfish_e.png" />
     <None Remove="Resources\cards\Beach\re_Strong_Wind.png" />
     <None Remove="Resources\cards\Graveyard\eri_AntHusk.png" />
+    <None Remove="Resources\cards\Graveyard\eri_AntHusk_e.png" />
     <None Remove="Resources\cards\Graveyard\eri_BearSkeleton.png" />
+    <None Remove="Resources\cards\Graveyard\eri_BearSkeleton_e.png" />
+    <None Remove="Resources\cards\Graveyard\eri_BirdSkeleton.png" />
+    <None Remove="Resources\cards\Graveyard\eri_BirdSkeleton_e.png" />
     <None Remove="Resources\cards\Graveyard\eri_ElkSkeleton.png" />
+    <None Remove="Resources\cards\Graveyard\eri_ElkSkeleton_e.png" />
     <None Remove="Resources\cards\Graveyard\eri_RatSkeleton.png" />
+    <None Remove="Resources\cards\Graveyard\eri_RatSkeleton_e.png" />
     <None Remove="Resources\cards\Graveyard\eri_WolfSkeleton.png" />
+    <None Remove="Resources\cards\Graveyard\eri_WolfSkeleton_e.png" />
+    <None Remove="Resources\cards\Graveyard\re_coffin.png" />
+    <None Remove="Resources\cards\Graveyard\re_coffin_e.png" />
+    <None Remove="Resources\cards\Graveyard\re_open_grave.png" />
+    <None Remove="Resources\cards\Graveyard\re_open_grave_e.png" />
     <None Remove="Resources\challenges\fog.png" />
     <None Remove="Resources\challenges\fog_on.png" />
     <None Remove="Resources\nodes\animated_bossnode_gravekeeper_1.png" />
@@ -69,6 +80,8 @@
     <None Remove="Resources\re_Starfish.png" />
     <None Remove="Resources\re_Starfish_e.png" />
     <None Remove="Resources\re_Strong_Wind.png" />
+    <None Remove="Resources\sigils\buriedAlive.png" />
+    <None Remove="Resources\sigils\buriedAlive_a2.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -91,10 +104,21 @@
     <EmbeddedResource Include="Resources\cards\Beach\re_Starfish_e.png" />
     <EmbeddedResource Include="Resources\cards\Beach\re_Strong_Wind.png" />
     <EmbeddedResource Include="Resources\cards\Graveyard\eri_AntHusk.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_AntHusk_e.png" />
     <EmbeddedResource Include="Resources\cards\Graveyard\eri_BearSkeleton.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_BearSkeleton_e.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_BirdSkeleton.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_BirdSkeleton_e.png" />
     <EmbeddedResource Include="Resources\cards\Graveyard\eri_ElkSkeleton.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_ElkSkeleton_e.png" />
     <EmbeddedResource Include="Resources\cards\Graveyard\eri_RatSkeleton.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_RatSkeleton_e.png" />
     <EmbeddedResource Include="Resources\cards\Graveyard\eri_WolfSkeleton.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_WolfSkeleton_e.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\re_coffin.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\re_coffin_e.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\re_open_grave.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\re_open_grave_e.png" />
     <EmbeddedResource Include="Resources\challenges\fog.png" />
     <EmbeddedResource Include="Resources\challenges\fog_on.png" />
     <EmbeddedResource Include="Resources\nodes\animated_bossnode_gravekeeper_1.png" />
@@ -106,6 +130,8 @@
     <EmbeddedResource Include="Resources\nodes\animated_copycard_3.png" />
     <EmbeddedResource Include="Resources\nodes\animated_copycard_4.png" />
     <EmbeddedResource Include="Resources\region_expansions" />
+    <EmbeddedResource Include="Resources\sigils\buriedAlive.png" />
+    <EmbeddedResource Include="Resources\sigils\buriedAlive_a2.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -137,10 +163,6 @@
     <Reference Include="Sirenix.Serialization">
       <HintPath>lib\Sirenix.Serialization.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Encounter\Bosses\" />
   </ItemGroup>
 
   <Target Name="CopyDLLs" AfterTargets="Build">

@@ -117,10 +117,6 @@ namespace RegionExpansions.Regions.Beach.Encounters
                 replacement = CardLoader.GetCardByName("Shark"),
                 randomReplaceChance = 25
             });
-            List<EncounterBlueprintData.CardBlueprint> turn_8 = new List<EncounterBlueprintData.CardBlueprint>();
-
-
-            List<EncounterBlueprintData.CardBlueprint> turn_9 = new List<EncounterBlueprintData.CardBlueprint>();
 
 
             turns.Add(turn_1);
@@ -130,8 +126,6 @@ namespace RegionExpansions.Regions.Beach.Encounters
             turns.Add(turn_5);
             turns.Add(turn_6);
             turns.Add(turn_7);
-            turns.Add(turn_8);
-            turns.Add(turn_9);
 
 
             var encounter = EncounterHelper.BuildBlueprint(name, dominate, redundant, regionLocked, 0, 30, randomReplacements, turns);

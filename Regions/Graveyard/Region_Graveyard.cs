@@ -3,6 +3,7 @@ using InscryptionAPI.Encounters;
 using InscryptionAPI.Regions;
 using DiskCardGame;
 using UnityEngine;
+using InscryptionAPI.Guid;
 
 namespace RegionExpansions.Regions.Graveyard
 {
@@ -66,8 +67,13 @@ namespace RegionExpansions.Regions.Graveyard
                 .SetFogEnabled(forestRegionBase.fogEnabled)
                 .SetDustParticlesEnabled(true)
                 .AddBosses(Plugin.GravekeeperBoss)
-                .AddDominantTribes(Tribe.Canine, Tribe.Hooved)
-                .AddEncounters(EncounterHelper.GetBlueprintData("CoyotePack"), EncounterHelper.GetBlueprintData("WolfPack"), EncounterHelper.GetBlueprintData("DireWolfJuggernaut"), EncounterHelper.GetBlueprintData("ElkHerd"), EncounterHelper.GetBlueprintData("MooseJuggernaut"), EncounterHelper.GetBlueprintData("WildBulls"))
+                .AddDominantTribes(Tribe.Canine, GuidManager.GetEnumValue<Tribe>(Plugin.TotemGUID, "undead"))
+                .AddEncounters(EncounterHelper.GetBlueprintData("CoyotePack"), 
+                    EncounterHelper.GetBlueprintData("WolfPack"), 
+                    EncounterHelper.GetBlueprintData("DireWolfJuggernaut"),
+                    EncounterHelper.GetCustomBlueprintData("UndeadRush"),
+                    EncounterHelper.GetCustomBlueprintData("UndeadElks"),
+                    EncounterHelper.GetCustomBlueprintData("UndeadRush"))
                 .AddTerrainCards("re_Coffin", "re_Strong_Wind_1", "re_Open_Grave")
                 .Build();
 
