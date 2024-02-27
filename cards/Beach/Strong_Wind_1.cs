@@ -11,6 +11,7 @@ namespace RegionExpansions.cards.Beach
         public static readonly Ability CustomAbility2 = InscryptionAPI.Guid.GuidManager.GetEnumValue<Ability>("extraVoid.inscryption.voidSigils", "Strong Wind");
         public static void AddCard()
         {
+            string modPrefix = "re";
             string name = "re_Strong_Wind_1";
             string displayName = "Strong Wind";
             string description = "A strong wind forces fliers to land.";
@@ -24,17 +25,22 @@ namespace RegionExpansions.cards.Beach
 
             List<Tribe> Tribes = new List<Tribe>();
 
-            List<Ability> Abilities = new List<Ability>();
-            Abilities.Add(Ability.Reach);
-            Abilities.Add(CustomAbility2);
+            List<Ability> Abilities = new List<Ability>
+            {
+                Ability.Reach,
+                CustomAbility2
+            };
 
-            List<Trait> Traits = new List<Trait>();
-            Traits.Add(Trait.Terrain);
+            List<Trait> Traits = new List<Trait>
+            {
+                Trait.Terrain
+            };
 
             Texture2D DefaultTexture = TextureHelper.GetImageAsTexture("re_Strong_Wind.png", typeof(Strong_Wind_1).Assembly);
             Texture2D eTexture = TextureHelper.GetImageAsTexture("re_Strong_Wind.png", typeof(Strong_Wind_1).Assembly);
 
             CardInfo newCard = SigilUtils.CreateCardWithDefaultSettings(
+                ModPrefix: modPrefix,
                 InternalName: name,
                 DisplayName: displayName,
                 attack: baseAttack,
@@ -55,6 +61,7 @@ namespace RegionExpansions.cards.Beach
             newCard.AddSpecialAbilities(sigils.DyingWind.specialAbility);
             newCard.SetTerrain();
             CardManager.Add("re", newCard);
+            Plugin.Log.LogDebug("Added card: " + newCard.name);
         }
     }
 }

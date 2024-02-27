@@ -13,6 +13,7 @@ namespace RegionExpansions.cards.Beach
         public static readonly Ability CustomAbility2 = GuidManager.GetEnumValue<Ability>("extraVoid.inscryption.voidSigils", "Sticky");
         public static void AddCard()
         {
+            string modPrefix = "re";
             string name = "re_Mussel";
             string displayName = "Rock Mussel";
             string description = "A mussel that can stick to anything.";
@@ -22,9 +23,11 @@ namespace RegionExpansions.cards.Beach
             int boneCost = 0;
             int energyCost = 0;
 
-            List<CardMetaCategory> metaCategories = new List<CardMetaCategory>();
-            metaCategories.Add(CardMetaCategory.ChoiceNode);
-            metaCategories.Add(CardMetaCategory.TraderOffer);
+            List<CardMetaCategory> metaCategories = new List<CardMetaCategory>
+            {
+                CardMetaCategory.ChoiceNode,
+                CardMetaCategory.TraderOffer
+            };
 
             List<Tribe> Tribes = new List<Tribe>();
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.TotemGUID))
@@ -38,9 +41,11 @@ namespace RegionExpansions.cards.Beach
                 Tribes.Add(GuidManager.GetEnumValue<Tribe>(Plugin.NeverGUID, "Crustacean"));
             }
 
-            List<Ability> Abilities = new List<Ability>();
-            Abilities.Add(CustomAbility1);
-            Abilities.Add(CustomAbility2);
+            List<Ability> Abilities = new List<Ability>
+            {
+                CustomAbility1,
+                CustomAbility2
+            };
 
             List<Trait> Traits = new List<Trait>();
 
@@ -48,6 +53,7 @@ namespace RegionExpansions.cards.Beach
             Texture2D eTexture = TextureHelper.GetImageAsTexture("re_Mussel_e.png", typeof(Plugin).Assembly);
 
             CardInfo newCard = SigilUtils.CreateCardWithDefaultSettings(
+                ModPrefix: modPrefix,
                 InternalName: name,
                 DisplayName: displayName,
                 attack: baseAttack,
@@ -65,6 +71,7 @@ namespace RegionExpansions.cards.Beach
                 );
             newCard.description = description;
             CardManager.Add("re", newCard);
+            Plugin.Log.LogDebug("Added card: " + newCard.name);
         }
     }
 }

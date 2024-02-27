@@ -7,7 +7,7 @@ using System.Text;
 
 namespace RegionExpansions.Regions.Beach.Encounters
 {
-    internal class UndeadRush
+    internal class CrabsAndLobster
     {
         public static void AddEncounter()
         {

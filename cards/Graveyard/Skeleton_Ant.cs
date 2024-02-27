@@ -14,6 +14,7 @@ namespace RegionExpansions.cards.Graveyard
     {
         public static void AddCard()
         {
+            string modPrefix = "eri";
             string name = "eri_AntHusk";
             string displayName = "Ant Husk";
             string description = "The husk of an ant, their dedication truly know no bounds";
@@ -50,6 +51,7 @@ namespace RegionExpansions.cards.Graveyard
             Texture2D eTexture = TextureHelper.GetImageAsTexture("eri_AntHusk_e.png", typeof(Plugin).Assembly);
 
             CardInfo newCard = SigilUtils.CreateCardWithDefaultSettings(
+                ModPrefix: modPrefix,
                 InternalName: name,
                 DisplayName: displayName,
                 attack: baseAttack,
@@ -69,6 +71,7 @@ namespace RegionExpansions.cards.Graveyard
             newCard.SetStatIcon(SpecialStatIcon.Ants);
             newCard.AddSpecialAbilities(SpecialTriggeredAbility.Ant);
             CardManager.Add("eri", newCard);
+            Plugin.Log.LogDebug("Added card: " + newCard.name);
         }
     }
 }

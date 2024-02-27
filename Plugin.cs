@@ -82,11 +82,11 @@ namespace RegionExpansions
 
         private void Start()
         {
-
+            
 
             Regions.Beach.Encounters.BirdOfTheSea.AddEncounter();
             Regions.Beach.Encounters.TideOfFish.AddEncounter();
-            Regions.Beach.Encounters.UndeadRush.AddEncounter();
+            Regions.Beach.Encounters.CrabsAndLobster.AddEncounter();
             Regions.Graveyard.Encounters.UndeadAnts.AddEncounter();
             Regions.Graveyard.Encounters.UndeadElks.AddEncounter();
             Regions.Graveyard.Encounters.UndeadRush.AddEncounter();

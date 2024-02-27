@@ -14,6 +14,7 @@ namespace RegionExpansions.cards.Graveyard
     {
         public static void AddCard()
         {
+            string modPrefix = "re";
             string name = "re_Coffin";
             string displayName = "Coffin";
             string description = "A coffin, who knows what is in it.";
@@ -33,8 +34,10 @@ namespace RegionExpansions.cards.Graveyard
             }
 
 
-            List<Ability> Abilities = new List<Ability>();
-            Abilities.Add(RegionExpansions.sigils.ability_BuriedAlive.ability);
+            List<Ability> Abilities = new List<Ability>
+            {
+                RegionExpansions.sigils.ability_BuriedAlive.ability
+            };
 
             List<Trait> Traits = new List<Trait>();
 
@@ -42,6 +45,7 @@ namespace RegionExpansions.cards.Graveyard
             Texture2D eTexture = TextureHelper.GetImageAsTexture("re_coffin_e.png", typeof(Plugin).Assembly);
 
             CardInfo newCard = SigilUtils.CreateCardWithDefaultSettings(
+                ModPrefix: modPrefix,
                 InternalName: name,
                 DisplayName: displayName,
                 attack: baseAttack,
@@ -60,6 +64,7 @@ namespace RegionExpansions.cards.Graveyard
             newCard.description = description;
             newCard.SetTerrain();
             CardManager.Add("re", newCard);
+            Plugin.Log.LogDebug("Added card: " + newCard.name);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace RegionExpansions.cards.Beach
         public static readonly Ability CustomAbility1 = GuidManager.GetEnumValue<Ability>("extraVoid.inscryption.voidSigils", "Gripper");
         public static void AddCard()
         {
+            string modPrefix = "re";
             string name = "re_American_Lobster";
             string displayName = "Small Lobster";
             string description = "Their claws can keep a grip on almost anything.";
@@ -21,9 +22,11 @@ namespace RegionExpansions.cards.Beach
             int boneCost = 0;
             int energyCost = 0;
 
-            List<CardMetaCategory> metaCategories = new List<CardMetaCategory>();
-            metaCategories.Add(CardMetaCategory.ChoiceNode);
-            metaCategories.Add(CardMetaCategory.TraderOffer);
+            List<CardMetaCategory> metaCategories = new List<CardMetaCategory>
+            {
+                CardMetaCategory.ChoiceNode,
+                CardMetaCategory.TraderOffer
+            };
 
             List<Tribe> Tribes = new List<Tribe>();
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.TotemGUID))
@@ -38,9 +41,11 @@ namespace RegionExpansions.cards.Beach
             }
 
 
-            List<Ability> Abilities = new List<Ability>();
-            Abilities.Add(CustomAbility1);
-            Abilities.Add(Ability.Submerge);
+            List<Ability> Abilities = new List<Ability>
+            {
+                CustomAbility1,
+                Ability.Submerge
+            };
 
             List<Trait> Traits = new List<Trait>();
 
@@ -48,6 +53,7 @@ namespace RegionExpansions.cards.Beach
             Texture2D eTexture = TextureHelper.GetImageAsTexture("re_Lobster_e.png", typeof(Plugin).Assembly);
 
             CardInfo newCard = SigilUtils.CreateCardWithDefaultSettings(
+                ModPrefix: modPrefix,
                 InternalName: name,
                 DisplayName: displayName,
                 attack: baseAttack,
@@ -65,6 +71,7 @@ namespace RegionExpansions.cards.Beach
                 );
             newCard.description = description;
             CardManager.Add("re", newCard);
+            Plugin.Log.LogDebug("Added card: " + newCard.name);
         }
     }
 }

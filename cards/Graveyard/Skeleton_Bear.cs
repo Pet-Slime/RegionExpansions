@@ -17,6 +17,7 @@ namespace RegionExpansions.cards.Graveyard
         public static readonly Ability CustomAbility2 = GuidManager.GetEnumValue<Ability>("ATS", "Pathetic Sacrifice");
         public static void AddCard()
         {
+            string modPrefix = "eri";
             string name = "eri_BearSkeleton";
             string displayName = "Bear Skeleton";
             string description = "A terrible creature that shouldn't allow to be.";
@@ -53,6 +54,7 @@ namespace RegionExpansions.cards.Graveyard
             Texture2D eTexture = TextureHelper.GetImageAsTexture("eri_BearSkeleton_e.png", typeof(Plugin).Assembly);
 
             CardInfo newCard = SigilUtils.CreateCardWithDefaultSettings(
+                ModPrefix: modPrefix,
                 InternalName: name,
                 DisplayName: displayName,
                 attack: baseAttack,
@@ -70,6 +72,7 @@ namespace RegionExpansions.cards.Graveyard
                 );
             newCard.description = description;
             CardManager.Add("eri", newCard);
+            Plugin.Log.LogDebug("Added card: " + newCard.name);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace RegionExpansions.cards.Graveyard
         public static readonly Ability CustomAbility2 = GuidManager.GetEnumValue<Ability>("ATS", "Pathetic Sacrifice");
         public static void AddCard()
         {
+            string modPrefix = "eri";
             string name = "eri_RatSkeleton";
             string displayName = "Rat Skeleton";
             string description = "The remnant of a rat... Can't be picky when you're starving for ressources";
@@ -36,9 +37,11 @@ namespace RegionExpansions.cards.Graveyard
             }
 
 
-            List<Ability> Abilities = new List<Ability>();
-            Abilities.Add(CustomAbility1);
-            Abilities.Add(CustomAbility2);
+            List<Ability> Abilities = new List<Ability>
+            {
+                CustomAbility1,
+                CustomAbility2
+            };
 
             List<Trait> Traits = new List<Trait>();
 
@@ -46,6 +49,7 @@ namespace RegionExpansions.cards.Graveyard
             Texture2D eTexture = TextureHelper.GetImageAsTexture("eri_RatSkeleton_e.png", typeof(Plugin).Assembly);
 
             CardInfo newCard = SigilUtils.CreateCardWithDefaultSettings(
+                ModPrefix: modPrefix,
                 InternalName: name,
                 DisplayName: displayName,
                 attack: baseAttack,
@@ -64,6 +68,7 @@ namespace RegionExpansions.cards.Graveyard
             newCard.description = description;
             newCard.SetRare();
             CardManager.Add("eri", newCard);
+            Plugin.Log.LogDebug("Added card: " + newCard.name);
         }
     }
 }

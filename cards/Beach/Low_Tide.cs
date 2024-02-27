@@ -11,6 +11,7 @@ namespace RegionExpansions.cards.Beach
         public static readonly Ability CustomAbility1 = InscryptionAPI.Guid.GuidManager.GetEnumValue<Ability>("extraVoid.inscryption.voidSigils", "Low Tide");
         public static void AddCard()
         {
+            string modPrefix = "re";
             string name = "re_Low_Tide";
             string displayName = "Low Tide";
             string description = "A low tide reveals treasure.";
@@ -24,16 +25,18 @@ namespace RegionExpansions.cards.Beach
 
             List<Tribe> Tribes = new List<Tribe>();
 
-            List<Ability> Abilities = new List<Ability>();
-            Abilities.Add(CustomAbility1);
+            List<Ability> Abilities = new List<Ability>
+            {
+                CustomAbility1
+            };
 
             List<Trait> Traits = new List<Trait>();
-            Traits.Add(Trait.Terrain);
 
             Texture2D DefaultTexture = TextureHelper.GetImageAsTexture("re_LowTide.png", typeof(Low_Tide).Assembly);
             Texture2D eTexture = TextureHelper.GetImageAsTexture("re_LowTide.png", typeof(Low_Tide).Assembly);
 
             CardInfo newCard = SigilUtils.CreateCardWithDefaultSettings(
+                ModPrefix: modPrefix,
                 InternalName: name,
                 DisplayName: displayName,
                 attack: baseAttack,
@@ -52,6 +55,7 @@ namespace RegionExpansions.cards.Beach
             newCard.description = description;
             newCard.SetTerrain();
             CardManager.Add("re", newCard);
+            Plugin.Log.LogDebug("Added card: " + newCard.name);
         }
     }
 }

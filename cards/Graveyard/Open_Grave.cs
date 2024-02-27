@@ -15,6 +15,7 @@ namespace RegionExpansions.cards.Graveyard
         public static readonly Ability CustomAbility1 = GuidManager.GetEnumValue<Ability>("ATS", "Poisonous");
         public static void AddCard()
         {
+            string modPrefix = "re";
             string name = "re_Open_Grave";
             string displayName = "Open Grave";
             string description = "A grave needs a body.";
@@ -45,6 +46,7 @@ namespace RegionExpansions.cards.Graveyard
             Texture2D eTexture = TextureHelper.GetImageAsTexture("re_coffin_e.png", typeof(Plugin).Assembly);
 
             CardInfo newCard = SigilUtils.CreateCardWithDefaultSettings(
+                ModPrefix: modPrefix,
                 InternalName: name,
                 DisplayName: displayName,
                 attack: baseAttack,
@@ -63,6 +65,7 @@ namespace RegionExpansions.cards.Graveyard
             newCard.description = description;
             newCard.SetTerrain();
             CardManager.Add("re", newCard);
+            Plugin.Log.LogDebug("Added card: " + newCard.name);
         }
     }
 }

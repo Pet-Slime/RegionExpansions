@@ -14,6 +14,7 @@ namespace RegionExpansions.cards.Beach
         public static readonly Ability CustomAbility2 = GuidManager.GetEnumValue<Ability>("extraVoid.inscryption.voidSigils", "Regen 2");
         public static void AddCard()
         {
+            string modPrefix = "re";
             string name = "re_Starfish";
             string displayName = "Beach Star";
             string description = "A starfish found in tidepools. They love to consume crab.";
@@ -24,9 +25,11 @@ namespace RegionExpansions.cards.Beach
             int energyCost = 0;
             string BoTribe = "aquatic";
 
-            List<CardMetaCategory> metaCategories = new List<CardMetaCategory>();
-            metaCategories.Add(CardMetaCategory.ChoiceNode);
-            metaCategories.Add(CardMetaCategory.TraderOffer);
+            List<CardMetaCategory> metaCategories = new List<CardMetaCategory>
+            {
+                CardMetaCategory.ChoiceNode,
+                CardMetaCategory.TraderOffer
+            };
 
             List<Tribe> Tribes = new List<Tribe>();
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(Plugin.TotemGUID))
@@ -35,9 +38,11 @@ namespace RegionExpansions.cards.Beach
                 Tribes.Add(GuidManager.GetEnumValue<Tribe>(Plugin.TotemGUID, BoTribe));
             }
 
-            List<Ability> Abilities = new List<Ability>();
-            Abilities.Add(CustomAbility1);
-            Abilities.Add(CustomAbility2);
+            List<Ability> Abilities = new List<Ability>
+            {
+                CustomAbility1,
+                CustomAbility2
+            };
 
             List<Trait> Traits = new List<Trait>();
 
@@ -45,6 +50,7 @@ namespace RegionExpansions.cards.Beach
             Texture2D eTexture = TextureHelper.GetImageAsTexture("re_Starfish_e.png", typeof(Plugin).Assembly);
 
             CardInfo newCard = SigilUtils.CreateCardWithDefaultSettings(
+                ModPrefix: modPrefix,
                 InternalName: name,
                 DisplayName: displayName,
                 attack: baseAttack,
@@ -62,6 +68,7 @@ namespace RegionExpansions.cards.Beach
                 );
             newCard.description = description;
             CardManager.Add("re", newCard);
+            Plugin.Log.LogDebug("Added card: " + newCard.name);
         }
     }
 }
