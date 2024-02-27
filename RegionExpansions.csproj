@@ -10,7 +10,47 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\animated_bossnode_gravekeeper_1.png" />
+    <None Remove="Resources\animated_bossnode_gravekeeper_2.png" />
+    <None Remove="Resources\animated_bossnode_gravekeeper_3.png" />
+    <None Remove="Resources\animated_bossnode_gravekeeper_4.png" />
+    <None Remove="Resources\animated_copycard_1.png" />
+    <None Remove="Resources\animated_copycard_2.png" />
+    <None Remove="Resources\animated_copycard_3.png" />
+    <None Remove="Resources\animated_copycard_4.png" />
     <None Remove="Resources\beach_pack.png" />
+    <None Remove="Resources\cards\Beach\re_Crab.png" />
+    <None Remove="Resources\cards\Beach\re_Crab_e.png" />
+    <None Remove="Resources\cards\Beach\re_HighTide.png" />
+    <None Remove="Resources\cards\Beach\re_Jellyfish.png" />
+    <None Remove="Resources\cards\Beach\re_Jellyfish_e.png" />
+    <None Remove="Resources\cards\Beach\re_Lobster.png" />
+    <None Remove="Resources\cards\Beach\re_Lobster_e.png" />
+    <None Remove="Resources\cards\Beach\re_LowTide.png" />
+    <None Remove="Resources\cards\Beach\re_mussel.png" />
+    <None Remove="Resources\cards\Beach\re_mussel_e.png" />
+    <None Remove="Resources\cards\Beach\re_Pogfish.png" />
+    <None Remove="Resources\cards\Beach\re_Pogfish_e.png" />
+    <None Remove="Resources\cards\Beach\re_salmon.png" />
+    <None Remove="Resources\cards\Beach\re_salmon_e.png" />
+    <None Remove="Resources\cards\Beach\re_Starfish.png" />
+    <None Remove="Resources\cards\Beach\re_Starfish_e.png" />
+    <None Remove="Resources\cards\Beach\re_Strong_Wind.png" />
+    <None Remove="Resources\cards\Graveyard\eri_AntHusk.png" />
+    <None Remove="Resources\cards\Graveyard\eri_BearSkeleton.png" />
+    <None Remove="Resources\cards\Graveyard\eri_ElkSkeleton.png" />
+    <None Remove="Resources\cards\Graveyard\eri_RatSkeleton.png" />
+    <None Remove="Resources\cards\Graveyard\eri_WolfSkeleton.png" />
+    <None Remove="Resources\challenges\fog.png" />
+    <None Remove="Resources\challenges\fog_on.png" />
+    <None Remove="Resources\nodes\animated_bossnode_gravekeeper_1.png" />
+    <None Remove="Resources\nodes\animated_bossnode_gravekeeper_2.png" />
+    <None Remove="Resources\nodes\animated_bossnode_gravekeeper_3.png" />
+    <None Remove="Resources\nodes\animated_bossnode_gravekeeper_4.png" />
+    <None Remove="Resources\nodes\animated_copycard_1.png" />
+    <None Remove="Resources\nodes\animated_copycard_2.png" />
+    <None Remove="Resources\nodes\animated_copycard_3.png" />
+    <None Remove="Resources\nodes\animated_copycard_4.png" />
     <None Remove="Resources\region_expansions" />
     <None Remove="Resources\re_Crab.png" />
     <None Remove="Resources\re_Crab_e.png" />
@@ -33,26 +73,39 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\beach_pack.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_Crab.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_Crab_e.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_HighTide.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_Jellyfish.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_Jellyfish_e.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_Lobster.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_Lobster_e.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_LowTide.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_mussel.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_mussel_e.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_Pogfish.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_Pogfish_e.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_salmon.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_salmon_e.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_Starfish.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_Starfish_e.png" />
+    <EmbeddedResource Include="Resources\cards\Beach\re_Strong_Wind.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_AntHusk.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_BearSkeleton.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_ElkSkeleton.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_RatSkeleton.png" />
+    <EmbeddedResource Include="Resources\cards\Graveyard\eri_WolfSkeleton.png" />
+    <EmbeddedResource Include="Resources\challenges\fog.png" />
+    <EmbeddedResource Include="Resources\challenges\fog_on.png" />
+    <EmbeddedResource Include="Resources\nodes\animated_bossnode_gravekeeper_1.png" />
+    <EmbeddedResource Include="Resources\nodes\animated_bossnode_gravekeeper_2.png" />
+    <EmbeddedResource Include="Resources\nodes\animated_bossnode_gravekeeper_3.png" />
+    <EmbeddedResource Include="Resources\nodes\animated_bossnode_gravekeeper_4.png" />
+    <EmbeddedResource Include="Resources\nodes\animated_copycard_1.png" />
+    <EmbeddedResource Include="Resources\nodes\animated_copycard_2.png" />
+    <EmbeddedResource Include="Resources\nodes\animated_copycard_3.png" />
+    <EmbeddedResource Include="Resources\nodes\animated_copycard_4.png" />
     <EmbeddedResource Include="Resources\region_expansions" />
-    <EmbeddedResource Include="Resources\re_Crab.png" />
-    <EmbeddedResource Include="Resources\re_Crab_e.png">
-      <CopyToOutputDirectory>Embedded resource</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\re_HighTide.png" />
-    <EmbeddedResource Include="Resources\re_Jellyfish.png" />
-    <EmbeddedResource Include="Resources\re_Jellyfish_e.png" />
-    <EmbeddedResource Include="Resources\re_Lobster.png" />
-    <EmbeddedResource Include="Resources\re_Lobster_e.png" />
-    <EmbeddedResource Include="Resources\re_LowTide.png" />
-    <EmbeddedResource Include="Resources\re_mussel.png" />
-    <EmbeddedResource Include="Resources\re_mussel_e.png" />
-    <EmbeddedResource Include="Resources\re_Pogfish.png" />
-    <EmbeddedResource Include="Resources\re_Pogfish_e.png" />
-    <EmbeddedResource Include="Resources\re_salmon.png" />
-    <EmbeddedResource Include="Resources\re_salmon_e.png" />
-    <EmbeddedResource Include="Resources\re_Starfish.png" />
-    <EmbeddedResource Include="Resources\re_Starfish_e.png" />
-    <EmbeddedResource Include="Resources\re_Strong_Wind.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -72,9 +72,9 @@ namespace RegionExpansions
 			}
 			cardinfo.temple = CardTemple.Nature;
 			cardinfo.cardComplexity = CardComplexity.Intermediate;
-			cardinfo.cost = bloodCost;
-			cardinfo.bonesCost = boneCost;
-			cardinfo.energyCost = energyCost;
+			cardinfo.SetBloodCost(bloodCost);
+			cardinfo.SetBonesCost(boneCost);
+			cardinfo.SetEnergyCost(energyCost);
 			return cardinfo;
 		}
 

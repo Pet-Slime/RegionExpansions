@@ -1,12 +1,10 @@
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
-using RegionExpansions.cards;
 using InscryptionAPI.Card;
 using UnityEngine;
 using System.IO;
 using System.Reflection;
-using RegionExpansions.Encounter.Normal;
 using System;
 using DiskCardGame;
 
@@ -52,21 +50,31 @@ namespace RegionExpansions
             Harmony harmony = new(PluginGuid);
 			harmony.PatchAll();
 			RegionExpansions.sigils.DyingWind.specialAbility = SpecialTriggeredAbilityManager.Add(Plugin.PluginGuid, "Dying Wind", typeof(RegionExpansions.sigils.DyingWind)).Id;
+            sigils.BuriedAlive.AddBuriedAlive();
 
-			High_Tide.AddCard();
-			Low_Tide.AddCard();
-			Strong_Wind_1.AddCard();
-			American_Lobster.AddCard();
-			Jonah_Crab.AddCard();
-			Costal_Salmon.AddCard();
-			Moon_Jellyfish.AddCard();
-			Mussel.AddCard();
-			School_Fish.AddCard();
-			Starfish.AddCard();
+            cards.Beach.High_Tide.AddCard();
+			cards.Beach.Low_Tide.AddCard();
+			cards.Beach.Strong_Wind_1.AddCard();
+			cards.Beach.American_Lobster.AddCard();
+			cards.Beach.Jonah_Crab.AddCard();
+			cards.Beach.Costal_Salmon.AddCard();
+			cards.Beach.Moon_Jellyfish.AddCard();
+			cards.Beach.Mussel.AddCard();
+			cards.Beach.School_Fish.AddCard();
+			cards.Beach.Starfish.AddCard();
+            cards.Graveyard.Coffin.AddCard();
+            cards.Graveyard.Open_Grave.AddCard();
+            cards.Graveyard.Skeleton_Ant.AddCard();
+            cards.Graveyard.Skeleton_Bear.AddCard();
+            cards.Graveyard.Skeleton_Bird.AddCard();
+            cards.Graveyard.Skeleton_Elk.AddCard();
+            cards.Graveyard.Skeleton_Rat.AddCard();
+            cards.Graveyard.Skeleton_Wolf.AddCard();
 
-			///Regions.Region_Beach.AddRegionIntroDialogue();
-			Regions.Graveyard.Region_Graveyard.AddRegionIntroDialogue();
-            Regions.Graveyard.Gravekeeper_boss.AddBossNodes();
+
+            ///Regions.Region_Beach.AddRegionIntroDialogue();
+            Regions.Graveyard.Region_Graveyard.AddRegionIntroDialogue();
+            Regions.Graveyard.BossBattleNodeData_Gravekeeper.AddBossNodes();
 
 		}
 
@@ -76,9 +84,13 @@ namespace RegionExpansions
         {
 
 
-            BirdOfTheSea.AddEncounter();
-            TideOfFish.AddEncounter();
-            CrabsAndLobster.AddEncounter();
+            Regions.Beach.Encounters.BirdOfTheSea.AddEncounter();
+            Regions.Beach.Encounters.TideOfFish.AddEncounter();
+            Regions.Beach.Encounters.UndeadRush.AddEncounter();
+            Regions.Graveyard.Encounters.UndeadAnts.AddEncounter();
+            Regions.Graveyard.Encounters.UndeadElks.AddEncounter();
+            Regions.Graveyard.Encounters.UndeadRush.AddEncounter();
+ ///           Masks.Gravekeeper_Mask.AddMask();
 
 
             ///Regions.Region_Beach.AddRegion();
@@ -107,11 +119,9 @@ namespace RegionExpansions
             public static void Postfix()
             {
                 Plugin.Log.LogInfo("Load Region Game Objects");
-                Regions.Region_Graveyard.LoadGameObjects();
+                Regions.Graveyard.Region_Graveyard.LoadGameObjects();
             }
         }
-
-
     }
 
 

@@ -49,8 +49,8 @@ namespace RegionExpansions.Regions.Graveyard
             Texture2D test = (Texture2D)alpineRegionBase.mapEmission;
 
 
-
-            var boardlight = Color.magenta;
+            
+            var boardlight = Color.Lerp(GameColors.Instance.lightPurple, Color.magenta, 0.50f);
             var cardlight = forestRegionBase.cardsLightColor;
             var mapAlbendo = wetlandRegionBase.mapAlbedo;
 
@@ -68,11 +68,11 @@ namespace RegionExpansions.Regions.Graveyard
                 .AddBosses(Plugin.GravekeeperBoss)
                 .AddDominantTribes(Tribe.Canine, Tribe.Hooved)
                 .AddEncounters(EncounterHelper.GetBlueprintData("CoyotePack"), EncounterHelper.GetBlueprintData("WolfPack"), EncounterHelper.GetBlueprintData("DireWolfJuggernaut"), EncounterHelper.GetBlueprintData("ElkHerd"), EncounterHelper.GetBlueprintData("MooseJuggernaut"), EncounterHelper.GetBlueprintData("WildBulls"))
-                .AddTerrainCards("Boulder", "GoldNugget")
+                .AddTerrainCards("re_Coffin", "re_Strong_Wind_1", "re_Open_Grave")
                 .Build();
 
-            Regions.Region_Graveyard.regionData.fillerScenery = Regions.Region_Graveyard.GetFillerScenery();
-            Regions.Region_Graveyard.regionData.scarceScenery = Regions.Region_Graveyard.GetScarceScenery();
+            Region_Graveyard.regionData.fillerScenery = Region_Graveyard.GetFillerScenery();
+            Region_Graveyard.regionData.scarceScenery = Region_Graveyard.GetScarceScenery();
         }
 
         private static List<FillerSceneryEntry> GetFillerScenery()
